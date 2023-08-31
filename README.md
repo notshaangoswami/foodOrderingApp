@@ -13,5 +13,5 @@
 -Differential Bundling
 -code splitting-supports older browers
 -Diagonstics(beautiful error handling)
--Tree Shaking-Remove unused code
+-Tree Shaking-Removes unused code
 
