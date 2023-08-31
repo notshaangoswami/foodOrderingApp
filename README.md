@@ -1,5 +1,7 @@
 # Learning js
+
 # parcel
+
 -Dev Build
 -Local Server
 -HMR-Hot Module Replacement
@@ -11,7 +13,7 @@
 -Compression
 -Consistent Hashing
 -Differential Bundling
--code splitting-supports older browers
+-code splitting
+-supports older browers
 -Diagonstics(beautiful error handling)
 -Tree Shaking-Removes unused code
-
