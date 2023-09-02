@@ -31,10 +31,12 @@
   background-color: #f0f0f0;
   width: 200px;
   height: 300px;
-
 }
 .res-logo {
   width: 190px;
   margin: 5px;
   height: 100px;
+}
+.filter-btn {
+  margin: 10px;
 }

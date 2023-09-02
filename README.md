@@ -17,3 +17,45 @@
 -supports older browers
 -Diagonstics(beautiful error handling)
 -Tree Shaking-Removes unused code
+
+# Food Ordering
+
+Header
+-Logo
+-Nav items
+Body
+-Search
+-RestaurantContainer
+-Restaurant Card
+-Img
+-Name of res,Star Rating,cuisine,delivery tie
+
+Footer
+-Copyright
+-LInks
+-address
+-contact
+
+# Export/Import
+
+/\*
+
+Two types of Import/Export
+-Default Import/Export
+export default Component
+import Component from "path"
+
+-Named Import/Export
+export const COMPONENT
+import {COMPONENT} from "Paths"
+
+\*/
+# HOOKS
+-Hooks are utility functions that give superpowers
+-react hooks keep ui layer in sink with data layer(config driven UI)
+1.useState-Whenever a state variables react re-renders the component
+2.useEffect
+# React is fast why?
+-Effective DOM manipulation(React fibre,React conciliation,Virual DOM,Diff Algo)
+-Has Vitual DOM(Object representation of html tags)
+-Diff ALgo is used to find difference btw old and new virtual dom and hence updates the UI
