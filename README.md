@@ -53,9 +53,9 @@ import {COMPONENT} from "Paths"
 # HOOKS
 -Hooks are utility functions that give superpowers
 -react hooks keep ui layer in sink with data layer(config driven UI)
-1.useState-Whenever a state variables react re-renders the component
-2.useEffect
+1.useState-Whenever a state variables updates, react re-renders the component
+2.useEffect-It is called after the component has been rendered.
 # React is fast why?
 -Effective DOM manipulation(React fibre,React conciliation,Virual DOM,Diff Algo)
 -Has Vitual DOM(Object representation of html tags)
--Diff ALgo is used to find difference btw old and new virtual dom and hence updates the UI
+-Diff ALgo is used to find difference btw old and new virtual dom and hence updates the UI 
