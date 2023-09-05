@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 //import { MENU_API } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenue = () => {
-  const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-  const fetchMenu = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.564018180978028&lng=77.19272822141647&restaurantId=" +
-        resId +
-        "&catalog_qa=undefined&query=Biryani&submitAction=ENTER"
-    );
-    const json = await data.json();
+  const resInfo = useRestaurantMenu(resId);
 
-    setResInfo(json.data);
-  };
   if (resInfo === null) return <Shimmer />;
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;

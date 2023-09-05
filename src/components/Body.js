@@ -2,9 +2,11 @@ import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import resList from "../utils/mockData";
 const Body = () => {
-  const [listOfRestraunts, setListOfRestraunts] = useState([]);
-  const [filteredListOfRestraunts, setFilteredListOfRestraunts] = useState([]);
+  const [listOfRestraunts, setListOfRestraunts] = useState(resList);
+  const [filteredListOfRestraunts, setFilteredListOfRestraunts] = useState(resList);
   const [searchText, setSearchText] = useState("");
 
   let handleClick = () => {
@@ -16,7 +18,7 @@ const Body = () => {
   };
 
   useEffect(() => {
-    fetchData();
+   // fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -25,17 +27,27 @@ const Body = () => {
     );
     const json = await data.json();
     let resList =
-      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    //console.log(resList);
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    console.log("before set state", resList);
+
     setListOfRestraunts(resList);
+
     setFilteredListOfRestraunts(resList);
   };
 
-  if (listOfRestraunts.length === 0) {
-    return <Shimmer />;
-  }
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus)
+    return (
+      <h1>
+        Ooopssss!..You seem to have internet connection.Please check your
+        internet
+      </h1>
+    );
+  console.log("before shimmer", listOfRestraunts);
 
-  return (
+  return listOfRestraunts === undefined || listOfRestraunts.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <div className="search">

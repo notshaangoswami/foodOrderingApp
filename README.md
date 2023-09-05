@@ -113,3 +113,25 @@ because in React => Component is rendered(without any data)=>Api call(fetched da
 -render(renders with data fetched from api)
 -componentDidUpdate()
 -componentWillUnMount()//called when component is removed from the page.
+
+# Lazy loading and Suspense component
+
+-Used to dynamically load components and divides the code into smalled chunks or bundles so that large scale applications are efficient and fast.
+
+    -import Grocery from "./components/Grocery";(normal import)
+    -const Grocery = lazy(() => import("./components/Grocery")); (lazy import)
+
+-by using lazy we separte grocery from main bundle.It will be in differnt bundle ie. differ js file and code will be splitted in smaller chunks
+
+-<Suspense fallback={<h1>Loading..</h1>}> -Suspense component is used is used otherwise it will show error
+-meaning lazy is importing react will render jsx inside fallback
+<Grocery />
+</Suspense>
+
+These are used when we build large scale application,all names are synonmous :-
+-chunking->loads component only when its clicked
+-Dynamic Bundling
+-lazy loading
+-chunking
+-code splitting
+-on demand loading
