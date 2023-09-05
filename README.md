@@ -78,7 +78,7 @@ import {COMPONENT} from "Paths"
 1.Client Side Routing(eg. React as it doesnot reloads the page while navigating but just switches the component=> Hence it is fast=>Single page applications)
 2.Server Side Routing- Traditonal way of making websites.Anchor tag was used to navigate and hence it reloads everytime the page by making server calls.
 
-# Life Cycle of React class components
+# Life Cycle of React class components(For SIngle child)
 
 -Parent Constructor()
 -Parent Render()
@@ -88,3 +88,14 @@ import {COMPONENT} from "Paths"
 -parent componentDidMount()
 Note:-Api calls are written in componentDidMount() in class based Components.Similar to useEffect()hook.
 because in React => Component is rendered(without any data)=>Api call(fetched data)=> Component Re-rendered with data(config driven UI)
+# Life Cycle of React class components(For multiple childs)
+
+-Parent Constructor()
+-Parent Render()
+ -firstchild Constructor()
+ -firstchild render()
+ -secondchild constructor()  
+ -secondchild render()       //optimization of react(bundles/BATCHES all the "render phase" of its child)--->DOM  M
+ -firstchild componentDidMount()  //Second phase-Commit phase where component is mounted of the childs
+ -secondchild componentDidMount()
+-parent componentDidMount()
