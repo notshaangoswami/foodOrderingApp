@@ -86,16 +86,30 @@ import {COMPONENT} from "Paths"
 -child render()
 -child componentDidMount()
 -parent componentDidMount()
+
 Note:-Api calls are written in componentDidMount() in class based Components.Similar to useEffect()hook.
 because in React => Component is rendered(without any data)=>Api call(fetched data)=> Component Re-rendered with data(config driven UI)
+
 # Life Cycle of React class components(For multiple childs)
 
 -Parent Constructor()
 -Parent Render()
- -firstchild Constructor()
- -firstchild render()
- -secondchild constructor()  
- -secondchild render()       //optimization of react(bundles/BATCHES all the "render phase" of its child)--->DOM  M
- -firstchild componentDidMount()  //Second phase-Commit phase where component is mounted of the childs
- -secondchild componentDidMount()
+
+-firstchild Constructor()
+-firstchild render()
+-secondchild constructor()  
+ -secondchild render() //optimization of react(bundles/BATCHES all the "render phase" of its child)->DOMManipulat
+
+-firstchild componentDidMount() //Second phase-Commit phase where component is mounted of the childs
+-secondchild componentDidMount()
+
 -parent componentDidMount()
+
+# Life cycle componentDidUpdate() and componentWillUnmount()
+
+-contructor()
+-render(renders with default data)
+-componentDidMount()//api calls and has "this.setState()"->updates state variables and re-renders render() method
+-render(renders with data fetched from api)
+-componentDidUpdate()
+-componentWillUnMount()//called when component is removed from the page.
