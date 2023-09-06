@@ -146,3 +146,6 @@ These are used when we build large scale application,all names are synonmous :-
 -material ui
 -styled components
 -tailwind css(used in app) 
+# Higher Order Component(function)
+- Takes in function as an input and returns component as output
+-acts as an enhancer

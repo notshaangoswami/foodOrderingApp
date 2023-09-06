@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withLabelRestaurantCard } from "./RestaurantCard";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -17,9 +17,10 @@ const Body = () => {
     console.log(filteredList);
     setFilteredListOfRestraunts(filteredList);
   };
+  const LabeledRestaurantCard = withLabelRestaurantCard(RestaurantCard); //Higher order Component
 
   useEffect(() => {
-    // fetchData();
+    //fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -44,7 +45,7 @@ const Body = () => {
       </h1>
     );
 
-  return listOfRestraunts === undefined || listOfRestraunts.length === 0 ? (
+  return listOfRestraunts===undefined || listOfRestraunts.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -87,7 +88,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant.info} />
+            {restaurant.info.veg ? (
+              <LabeledRestaurantCard resData={restaurant.info} />
+            ) : (
+              <RestaurantCard resData={restaurant.info} />
+            )}
           </Link>
         ))}
       </div>
