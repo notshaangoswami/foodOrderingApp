@@ -135,3 +135,14 @@ These are used when we build large scale application,all names are synonmous :-
 -chunking
 -code splitting
 -on demand loading
+
+# How to style ,use of css
+
+-normal css
+-sass,scss
+----VARIOUS LIB AND FRAMEWORKS ARE:-
+-bootstap
+-ant design
+-material ui
+-styled components
+-tailwind css(used in app) 

@@ -6,7 +6,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import resList from "../utils/mockData";
 const Body = () => {
   const [listOfRestraunts, setListOfRestraunts] = useState(resList);
-  const [filteredListOfRestraunts, setFilteredListOfRestraunts] = useState(resList);
+  const [filteredListOfRestraunts, setFilteredListOfRestraunts] =
+    useState(resList);
   const [searchText, setSearchText] = useState("");
 
   let handleClick = () => {
@@ -14,11 +15,11 @@ const Body = () => {
       (res) => res.info.avgRating > 4.0
     );
     console.log(filteredList);
-    setListOfRestraunts(filteredList);
+    setFilteredListOfRestraunts(filteredList);
   };
 
   useEffect(() => {
-   // fetchData();
+    // fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -28,7 +29,6 @@ const Body = () => {
     const json = await data.json();
     let resList =
       json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    console.log("before set state", resList);
 
     setListOfRestraunts(resList);
 
@@ -43,16 +43,15 @@ const Body = () => {
         internet
       </h1>
     );
-  console.log("before shimmer", listOfRestraunts);
 
   return listOfRestraunts === undefined || listOfRestraunts.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex items-center">
+        <div className="search m-4 p-4 ">
           <input
-            className="search-box"
+            className="search-box border-solid border border-black rounded-sm"
             type="text"
             value={searchText}
             onChange={(e) => {
@@ -60,6 +59,7 @@ const Body = () => {
             }}
           />
           <button
+            className="px-4 py-2 bg-green-200 m-4 rounded-lg"
             onClick={() => {
               //console.log(searchText);
               const filteredList = listOfRestraunts.filter((res) =>
@@ -71,12 +71,17 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button className="filter-btn" onClick={handleClick}>
-          Top Rated Restaurants
-        </button>
+        <div className="search m-4 p-4 flex items-center">
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg"
+            onClick={handleClick}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
 
-      <div className="res-container">
+      <div className=" flex flex-wrap">
         {filteredListOfRestraunts.map((restaurant) => (
           <Link
             key={restaurant.info.id}
