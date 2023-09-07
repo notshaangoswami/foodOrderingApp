@@ -149,3 +149,7 @@ These are used when we build large scale application,all names are synonmous :-
 # Higher Order Component(function)
 - Takes in function as an input and returns component as output
 -acts as an enhancer
+# Lifting the state Up and controlled components
+
+ -When parent has the control over the children components
+ -eg. accordian

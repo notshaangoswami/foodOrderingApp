@@ -3,8 +3,11 @@ import { useParams } from "react-router-dom";
 //import { MENU_API } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenue = () => {
+  const [showIndex, setShowIndex] = useState(0);
+  const[checkIndex,setCheckIndex]=useState(false);
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
@@ -32,10 +35,13 @@ const RestaurantMenue = () => {
         {cuisines.join(",")}-{costForTwoMessage}
       </p>
       <div>
-        {categories.map((resCategory) => (
-          <RestaurantCategory
+        {categories.map((resCategory, index) => (
+          <RestaurantCategory //controlled Component-Since children is dependent on parent whether to show list or not
             key={resCategory?.card?.card?.title}
             data={resCategory?.card?.card}
+            showList={index === showIndex ? checkIndex : false}
+            setShowIndex={() => setShowIndex(index)}
+            setCheckIndex={()=>setCheckIndex(!checkIndex)}
           />
         ))}
       </div>
