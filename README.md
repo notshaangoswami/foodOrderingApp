@@ -153,3 +153,14 @@ These are used when we build large scale application,all names are synonmous :-
 
  -When parent has the control over the children components
  -eg. accordian
+ # props drilling ,its problem and React Context
+  -props drillling is passing of props from parents to its child.But if leaf node has to access the data from the parent it is very foolish to send data from parent to its subsequent child even if the child is not using the data apart from the leaf child.
+  -React context solves this problem.It is like a global storage which can be accessed anywhere in the app.
+  # Redux- Library like react[ @reduxjs/toolkit and react-redux]
+  -Large applications require redux
+  -React app can be formed w/o redux
+  -aids in debugging
+  -manages state 
+  (imp)-->
+  1.Writing data to store-When we click the add button,it dispatches and action which calls a function(reducer) that updates the slice of the redux store.
+  2.Reading data-Our react component is SUBSCRIBED to our redux store using SELECTOR.
