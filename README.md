@@ -145,22 +145,49 @@ These are used when we build large scale application,all names are synonmous :-
 -ant design
 -material ui
 -styled components
--tailwind css(used in app) 
+-tailwind css(used in app)
+
 # Higher Order Component(function)
+
 - Takes in function as an input and returns component as output
--acts as an enhancer
+  -acts as an enhancer
+
 # Lifting the state Up and controlled components
 
- -When parent has the control over the children components
- -eg. accordian
- # props drilling ,its problem and React Context
-  -props drillling is passing of props from parents to its child.But if leaf node has to access the data from the parent it is very foolish to send data from parent to its subsequent child even if the child is not using the data apart from the leaf child.
-  -React context solves this problem.It is like a global storage which can be accessed anywhere in the app.
-  # Redux- Library like react[ @reduxjs/toolkit and react-redux]
-  -Large applications require redux
-  -React app can be formed w/o redux
-  -aids in debugging
-  -manages state 
-  (imp)-->
-  1.Writing data to store-When we click the add button,it dispatches and action which calls a function(reducer) that updates the slice of the redux store.
-  2.Reading data-Our react component is SUBSCRIBED to our redux store using SELECTOR.
+-When parent has the control over the children components
+-eg. accordian
+
+# props drilling ,its problem and React Context
+
+-props drillling is passing of props from parents to its child.But if leaf node has to access the data from the parent it is very foolish to send data from parent to its subsequent child even if the child is not using the data apart from the leaf child.
+-React context solves this problem.It is like a global storage which can be accessed anywhere in the app.
+
+# Redux- Library like react[ @reduxjs/toolkit and react-redux]
+
+-Large applications require redux
+-React app can be formed w/o redux
+-aids in debugging
+-manages state
+(imp)-->
+1.Writing data to store-When we click the add button,it dispatches and action which calls a function(reducer) that updates the slice of the redux store.
+2.Reading data-Our react component is SUBSCRIBED to our redux store using SELECTOR.
+important hooks:-
+1.useDispatch(action())
+2.useSelector()
+
+# Testing(developer testing)-Lib used:-- React Testing Library(based in DOM testing lib)-->uses npm i JEST
+
+-Unit Testing
+-Integration Testing
+-End to end testing(e2e)
+
+# Setting up testing
+
+-Install React Testing Lib
+-Install jest
+-Install Babel dependencies
+-Configure babel(babel.config.js)
+-Congigure parcel Config file to disable default babel transpilation(.parcelrc)
+-Jest configuration(npx jest --init)
+ -Install js DOM library--->npm install --save-dev jest-environment-jsdom
+ 
