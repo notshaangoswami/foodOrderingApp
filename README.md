@@ -189,5 +189,7 @@ important hooks:-
 -Configure babel(babel.config.js)
 -Congigure parcel Config file to disable default babel transpilation(.parcelrc)
 -Jest configuration(npx jest --init)
- -Install js DOM library--->npm install --save-dev jest-environment-jsdom
- 
+-Install js DOM library--->npm install --save-dev jest-environment-jsdom
+-@babel/preset-react--to make jsx work in test cases
+-include @babel/preset-react inside babel config
+-npm i D- @testing-library/jest-dom
